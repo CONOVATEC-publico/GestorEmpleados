@@ -8,7 +8,14 @@ package entidades;
  *
  * @author USER1
  */
-public abstract class Postulante extends Persona{
+public class Postulante extends Persona{
     boolean estado;
-    abstract void Prueba();
+    void Prueba(){
+        
+    }
+
+    @Override
+    void mostrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
