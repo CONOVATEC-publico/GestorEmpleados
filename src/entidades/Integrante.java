@@ -8,6 +8,8 @@ package entidades;
  *
  * @author USER1
  */
-public class Integrante {
+public abstract class Integrante extends Persona{
     
+    //no se como hacer un enum de actividad.
+    abstract void llenarHorasActividad();
 }
