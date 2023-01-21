@@ -8,9 +8,11 @@ package entidades;
  *
  * @author USER1
  */
-public abstract class Area {
+public class Area {
     String nombre;
     String [] integrante;
     
-    abstract void size(); 
+    void size(){
+        
+    } 
 }

@@ -8,6 +8,6 @@ package entidades;
  *
  * @author USER1
  */
-public abstract class Comunidad extends Area{
+public class Comunidad {
     
 }

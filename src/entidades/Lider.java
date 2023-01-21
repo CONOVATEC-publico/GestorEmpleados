@@ -8,10 +8,19 @@ package entidades;
  *
  * @author USER1
  */
-public abstract class Lider extends Persona{
+public class Lider extends Persona{
 
-    abstract void evaluarPostulante();
-    abstract void retirarIntegrante();
+    public void evaluarPostulante(){
+        
+    }
+    void retirarIntegrante(){
+        
+    }
+
+    @Override
+    void mostrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
 
