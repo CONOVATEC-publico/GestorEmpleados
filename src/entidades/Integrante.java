@@ -9,8 +9,9 @@ package entidades;
  * @author USER1
  */
 public class Integrante extends Persona{
-    Comunidad comunidad;
-    Area[] areas;
+    enum actividad {ACTIVO, OCASIONAL, INACTIVO};
+    Area area;
+    
     
     @Override
     void mostrar() {
