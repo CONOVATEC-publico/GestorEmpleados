@@ -9,7 +9,7 @@ package entidades;
  * @author USER1
  */
 public class Postulante extends Persona{
-    boolean estado;
+    enum actividad {ACEPTADO, RECHAZADO};
     void Prueba(){
         
     }

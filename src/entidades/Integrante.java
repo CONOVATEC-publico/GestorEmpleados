@@ -10,13 +10,11 @@ package entidades;
  */
 
 public abstract class Integrante extends Persona{
-    Comunidad comunidad;
-    Area[] areas;
+    enum actividad {ACTIVO, OCASIONAL, INACTIVO};
+    Area area;
     
     @Override
-    void mostrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    abstract void mostrar();
     
     //no se como hacer un enum de actividad.
     abstract void llenarHorasActividad();

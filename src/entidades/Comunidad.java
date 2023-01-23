@@ -9,5 +9,6 @@ package entidades;
  * @author USER1
  */
 public class Comunidad {
-    
+    String nombre;
+    Area[] areas;
 }
