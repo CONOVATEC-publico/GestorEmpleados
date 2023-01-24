@@ -4,13 +4,15 @@
  */
 package entidades;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author USER1
  */
 public class Area {
     String nombre;
-    String [] integrante;
+    ArrayList<Integrante> integrantes;
     
     void size(){
         
