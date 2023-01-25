@@ -10,9 +10,12 @@ package entidades;
  */
 public class Area {
     String nombre;
-    String [] integrante;
+    Integrante[] integrantes;
+    Comunidad comunidad;
     
     void size(){
         
-    } 
+    }
+    
+    
 }

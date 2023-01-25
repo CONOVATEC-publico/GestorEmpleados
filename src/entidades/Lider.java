@@ -9,7 +9,9 @@ package entidades;
  * @author USER1
  */
 public class Lider extends Persona{
-
+    
+    Area area;
+    
     public void evaluarPostulante(){
         
     }
