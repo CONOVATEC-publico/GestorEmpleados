@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Area {
     String nombre;
     ArrayList<Integrante> integrantes;
+    Comunidad comunidad;
     
     void size(){
         
