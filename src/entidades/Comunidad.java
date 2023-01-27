@@ -4,11 +4,26 @@
  */
 package entidades;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author USER1
  */
 public class Comunidad {
     String nombre;
-    Area[] areas;
+    ArrayList<Area> areas;
+
+    public Comunidad(String nombre) {
+        this.nombre = nombre;
+        areas=new ArrayList<>();
+    }
+
+    
+    
+    public Comunidad(String nombre, ArrayList<Area> areas) {
+        this.nombre = nombre;
+        this.areas = areas;
+    }
+    
 }

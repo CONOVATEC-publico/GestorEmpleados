@@ -5,6 +5,12 @@
  */
 package main;
 
+import entidades.Area;
+import entidades.Comunidad;
+import entidades.Integrante;
+import entidades.Lider;
+import java.util.ArrayList;
+
 /**
  *
  * @author ASUS1
@@ -17,6 +23,20 @@ public class Test {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Test");
+        
+        //ArrayList<Integrante> integrantes = new ArrayList<>();
+        //integrantes.add(new Integrante("Pepito", "20", "724633333"));
+        ArrayList<Area> areas = new ArrayList<>();
+        Area desarrolloSoftware=new Area("Desarrollo de Software");
+        areas.add(desarrolloSoftware);
+        Comunidad conovatec=new Comunidad("Conovatec");
+        Lider lider1=new Lider(desarrolloSoftware, "adrian", "24", "777777");
+        lider1.guardarIntegrante(new Integrante("Juan", "20", "2312312"));
+        lider1.getArea().mostrarIntegrantes();
+        System.out.println("");
+        
+        desarrolloSoftware.mostrarIntegrantes();
+        
     }
     
 }

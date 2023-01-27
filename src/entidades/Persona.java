@@ -12,6 +12,13 @@ public abstract class Persona {
     String nombre;
     String edad;
     String dni;
+
+    public Persona(String nombre, String edad, String dni) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.dni = dni;
+    }
+    
     
     abstract void mostrar();
 }

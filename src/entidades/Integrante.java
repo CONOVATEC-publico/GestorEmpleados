@@ -8,14 +8,28 @@ package entidades;
  *
  * @author USER1
  */
+public class Integrante extends Persona{
 
-public abstract class Integrante extends Persona{
     enum actividad {ACTIVO, OCASIONAL, INACTIVO};
-    Area area;
+    //Area area;//Area area;//Area area;//Area area;//Area area;//Area area;//Area area;//Area area;
     
+    
+    
+    public Integrante(String nombre, String edad, String dni) {
+        super(nombre, edad, dni);
+        
+    }
+
     @Override
-    abstract void mostrar();
+    void mostrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return "Integrante{" +super.nombre +','+super.edad+','+super.dni +'}';
+    }
+            
     
-    //no se como hacer un enum de actividad.
-    abstract void llenarHorasActividad();
+    
 }
