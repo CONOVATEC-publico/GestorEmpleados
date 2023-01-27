@@ -13,9 +13,38 @@ import java.util.ArrayList;
 public class Area {
     String nombre;
     ArrayList<Integrante> integrantes;
-    Comunidad comunidad;
+    //Comunidad comunidad;
+
+    public Area(String nombre) {
+        this.nombre = nombre;
+        integrantes=new ArrayList<Integrante>();
+    }
     
-    void size(){
-        
-    } 
+    public Area(String nombre, ArrayList<Integrante> integrantes) {
+        this.nombre = nombre;
+        this.integrantes = integrantes;
+        //this.comunidad = comunidad;
+    }
+    
+    public void mostrarIntegrantes(){
+        System.out.println("Integrantes:"+integrantes.toString());
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Integrante> getIntegrantes() {
+        return integrantes;
+    }
+
+    public void setIntegrantes(ArrayList<Integrante> integrantes) {
+        this.integrantes = integrantes;
+    }
+    
+    
 }

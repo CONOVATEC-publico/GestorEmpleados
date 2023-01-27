@@ -10,9 +10,12 @@ package entidades;
  */
 public class Postulante extends Persona{
     enum actividad {ACEPTADO, RECHAZADO};
-    void Prueba(){
-        
+
+    public Postulante(String nombre, String edad, String dni) {
+        super(nombre, edad, dni);
     }
+    
+    
 
     @Override
     void mostrar() {
