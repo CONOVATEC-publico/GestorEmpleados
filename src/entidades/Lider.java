@@ -29,7 +29,7 @@ public class Lider extends Persona {
     }
 
     public void retirarIntegrante() {
-
+        
     }
 
     public void guardarIntegrante(Integrante integrante) {

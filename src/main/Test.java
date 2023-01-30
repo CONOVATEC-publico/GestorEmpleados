@@ -43,6 +43,7 @@ public class Test {
         lider2.getArea().mostrarIntegrantes();
         
         
+        
     }
     
 }
