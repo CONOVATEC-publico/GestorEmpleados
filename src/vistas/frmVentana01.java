@@ -32,11 +32,10 @@ public class frmVentana01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaGestor = new javax.swing.JTable();
         btnAgregar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -44,14 +43,6 @@ public class frmVentana01 extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Gestor de Empleados");
-        jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
 
         TablaGestor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,26 +68,31 @@ public class frmVentana01 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Gestor de Empleados");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addGap(265, 265, 265)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(239, 239, 239)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar))
@@ -127,12 +123,14 @@ public class frmVentana01 extends javax.swing.JFrame {
         TablaGestor.setModel(modelo);
         
         //Definiendo el ancho de las columnas
-        TablaGestor.getColumnModel().getColumn(0).setMaxWidth(200);
-        TablaGestor.getColumnModel().getColumn(0).setPreferredWidth(200);
-        TablaGestor.getColumnModel().getColumn(1).setMaxWidth(20);
-        TablaGestor.getColumnModel().getColumn(1).setPreferredWidth(20);
+        TablaGestor.getColumnModel().getColumn(0).setMaxWidth(150);
+        TablaGestor.getColumnModel().getColumn(0).setPreferredWidth(150);
+        TablaGestor.getColumnModel().getColumn(1).setMaxWidth(80);
+        TablaGestor.getColumnModel().getColumn(1).setPreferredWidth(80);
         TablaGestor.getColumnModel().getColumn(2).setMaxWidth(80);
         TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(80);
+        TablaGestor.getColumnModel().getColumn(3).setMaxWidth(150);
+        TablaGestor.getColumnModel().getColumn(3).setPreferredWidth(150);
         
        
         
@@ -142,6 +140,10 @@ public class frmVentana01 extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        // Llamar al JDialog de DetalleDialogo
+        DetalleDialogo x = new DetalleDialogo(this, true); //se llama de forna modal
+        x.setVisible(true);
+        
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -184,8 +186,7 @@ public class frmVentana01 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaGestor;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
