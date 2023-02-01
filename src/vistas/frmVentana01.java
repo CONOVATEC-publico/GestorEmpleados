@@ -5,6 +5,7 @@
 package vistas;
 
 import javax.swing.table.DefaultTableModel; //modelo de datos para JTable
+import java.util.Vector; //se requiere para hacer filas
 
 /**
  *
@@ -35,6 +36,7 @@ public class frmVentana01 extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaGestor = new javax.swing.JTable();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,27 +70,37 @@ public class frmVentana01 extends javax.swing.JFrame {
         TablaGestor.setShowGrid(true);
         jScrollPane2.setViewportView(TablaGestor);
 
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(251, 251, 251))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                .addGap(23, 23, 23)
+                .addComponent(btnAgregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar))
+                .addContainerGap())
         );
 
         pack();
@@ -97,7 +109,13 @@ public class frmVentana01 extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         //Inicializando el modelo de datos
-        modelo = new DefaultTableModel();
+        modelo = new DefaultTableModel(){
+            //se requiere evitar la edición de las celdas del JTable
+            public boolean isCellEditable(int rowIndex, int mColIndex)
+            {
+                return false; //permite el retorno falso indicando que no permita editar la celda
+            }
+        };
         
         //Poniendo columnas al modelo
         modelo.addColumn("Nombre");
@@ -111,9 +129,21 @@ public class frmVentana01 extends javax.swing.JFrame {
         //Definiendo el ancho de las columnas
         TablaGestor.getColumnModel().getColumn(0).setMaxWidth(200);
         TablaGestor.getColumnModel().getColumn(0).setPreferredWidth(200);
+        TablaGestor.getColumnModel().getColumn(1).setMaxWidth(20);
+        TablaGestor.getColumnModel().getColumn(1).setPreferredWidth(20);
+        TablaGestor.getColumnModel().getColumn(2).setMaxWidth(80);
+        TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(80);
+        
+       
+        
         
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +183,7 @@ public class frmVentana01 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaGestor;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
