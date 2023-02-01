@@ -37,6 +37,11 @@ public class frmVentana01 extends javax.swing.JFrame {
         TablaGestor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -61,13 +66,6 @@ public class frmVentana01 extends javax.swing.JFrame {
         TablaGestor.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         TablaGestor.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         TablaGestor.setShowGrid(true);
-        TablaGestor.setShowHorizontalLines(true);
-        TablaGestor.setShowVerticalLines(true);
-        TablaGestor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TablaGestorPropertyChange(evt);
-            }
-        });
         jScrollPane2.setViewportView(TablaGestor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,16 +94,8 @@ public class frmVentana01 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TablaGestorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TablaGestorPropertyChange
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-    }//GEN-LAST:event_TablaGestorPropertyChange
-
-    /**
-     * @param args the command line arguments
-     */
-    
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {
-        //En esta parte se programará el llenado de JTable
         //Inicializando el modelo de datos
         modelo = new DefaultTableModel();
         
@@ -118,7 +108,16 @@ public class frmVentana01 extends javax.swing.JFrame {
         //Colocando el modelo en el JTable
         TablaGestor.setModel(modelo);
         
-    }
+        //Definiendo el ancho de las columnas
+        TablaGestor.getColumnModel().getColumn(0).setMaxWidth(200);
+        TablaGestor.getColumnModel().getColumn(0).setPreferredWidth(200);
+        
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    /**
+     * @param args the command line arguments
+     */
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
