@@ -141,8 +141,24 @@ public class frmVentana01 extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         // Llamar al JDialog de DetalleDialogo
-        DetalleDialogo x = new DetalleDialogo(this, true); //se llama de forna modal
+        DetalleDialogo x = new DetalleDialogo(this, true); // Llamar de forna modal
         x.setVisible(true);
+        
+        // Verificando si se hizo click en Aceptar
+        // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
+        if (x.getRootPane() != null)
+        {
+            // Se debe agregar al GRID del JDialog llamado DetalleDialogo
+            // Se debe crear un vector para la fila del JTable
+            Vector v = new Vector();
+            v.addElement(x.nombre.getText());
+            v.addElement(x.edad.getText());
+            v.addElement(x.dni.getText());
+            v.addElement(x.equipo.getText());
+            
+            // Agregar la fila al modelo
+            modelo.addRow(v);
+        }
         
         
     }//GEN-LAST:event_btnAgregarActionPerformed

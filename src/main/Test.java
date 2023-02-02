@@ -11,8 +11,6 @@ import entidades.Integrante;
 import entidades.Lider;
 import java.util.ArrayList;
 
-import vistas.Ventana01;
-import vistas.frmVentana01;
 
 /**
  *
