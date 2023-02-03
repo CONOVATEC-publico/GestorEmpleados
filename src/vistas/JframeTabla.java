@@ -117,7 +117,7 @@ public class JframeTabla extends javax.swing.JFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Edad");
         modelo.addColumn("DNI");
-        modelo.addColumn("Condición");
+        modelo.addColumn("Equipo");
         
         //Colocando el modelo en el JTable
         TablaGestor.setModel(modelo);
@@ -143,7 +143,8 @@ public class JframeTabla extends javax.swing.JFrame {
         // Llamar al JDialog de DetalleDialogo
         JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
         y.setVisible(true);
-        Integrante z = new Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
+        entidades.Integrante z = new entidades.Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
+        
         // Verificando si se hizo click en Aceptar
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
         if (y.getRootPane() != null)
