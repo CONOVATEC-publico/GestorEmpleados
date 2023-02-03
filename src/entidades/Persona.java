@@ -19,6 +19,9 @@ public abstract class Persona {
         this.dni = dni;
     }
     
+    public Persona() {
+        
+    }
     
     abstract void mostrar();
 }

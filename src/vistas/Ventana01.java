@@ -11,7 +11,7 @@ package vistas;
 public class Ventana01 {
     
     public static void main (String[] args) {
-        vistas.frmVentana01 x = new vistas.frmVentana01();
+        vistas.JframeTabla x = new vistas.JframeTabla();
         x.setVisible(true);
     }
     

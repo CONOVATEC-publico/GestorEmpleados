@@ -4,20 +4,32 @@
  */
 package vistas;
 
+import entidades.Area;
+import entidades.Integrante;
+import entidades.Lider;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author eterr
  */
-public class DetalleDialogo extends javax.swing.JDialog {
+public class JframeIngresoDatos extends javax.swing.JDialog {
+//Area desarrolloSoftware;
+//Lider lider1;
+//Integrante integrante;
 
+
+    
     /**
      * Creates new form DetalleDialogo
      */
-    public DetalleDialogo(java.awt.Frame parent, boolean modal) {
+    public JframeIngresoDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        //this.desarrolloSoftware = area1;
+        //this.lider1 = lider1;
+        //this.integrante = integrante1;
         initComponents();
+        
     }
 
     /**
@@ -205,20 +217,21 @@ public class DetalleDialogo extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetalleDialogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeIngresoDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetalleDialogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeIngresoDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetalleDialogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeIngresoDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetalleDialogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeIngresoDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DetalleDialogo dialog = new DetalleDialogo(new javax.swing.JFrame(), true);
+                JframeIngresoDatos dialog = new JframeIngresoDatos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -11,7 +11,7 @@ import java.util.Vector; //se requiere para hacer filas
  *
  * @author eterr
  */
-public class frmVentana01 extends javax.swing.JFrame {
+public class JframeTabla extends javax.swing.JFrame {
     
     //Se debe declarar el modelo de datos del JTable como una variable global
     DefaultTableModel modelo;
@@ -19,7 +19,7 @@ public class frmVentana01 extends javax.swing.JFrame {
     /**
      * Creates new form frmVentana01
      */
-    public frmVentana01() {
+    public JframeTabla() {
         initComponents();
     }
 
@@ -141,20 +141,20 @@ public class frmVentana01 extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         // Llamar al JDialog de DetalleDialogo
-        DetalleDialogo x = new DetalleDialogo(this, true); // Llamar de forna modal
-        x.setVisible(true);
-        
+        JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
+        y.setVisible(true);
+        Integrante z = new Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
         // Verificando si se hizo click en Aceptar
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
-        if (x.getRootPane() != null)
+        if (y.getRootPane() != null)
         {
             // Se debe agregar al GRID del JDialog llamado DetalleDialogo
             // Se debe crear un vector para la fila del JTable
             Vector v = new Vector();
-            v.addElement(x.nombre.getText());
-            v.addElement(x.edad.getText());
-            v.addElement(x.dni.getText());
-            v.addElement(x.equipo.getText());
+            v.addElement(y.nombre.getText());
+            v.addElement(y.edad.getText());
+            v.addElement(y.dni.getText());
+            v.addElement(y.equipo.getText());
             
             // Agregar la fila al modelo
             modelo.addRow(v);
@@ -181,20 +181,21 @@ public class frmVentana01 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmVentana01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmVentana01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmVentana01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmVentana01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JframeTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmVentana01().setVisible(true);
+                new JframeTabla().setVisible(true);
             }
         });
     }
