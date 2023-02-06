@@ -10,6 +10,8 @@ import entidades.Comunidad;
 import entidades.Integrante;
 import entidades.Lider;
 import java.util.ArrayList;
+import vistas.JframeTabla;
+
 
 /**
  *
@@ -22,6 +24,11 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        // Instanciar la clase JframeTabla a la clase main
+        JframeTabla window = new JframeTabla();
+        window.setTitle("Class_JframeTabla");
+        window.setVisible(true);
+        
         System.out.println("Test");
         
         //ArrayList<Integrante> integrantes = new ArrayList<>();
@@ -41,6 +48,8 @@ public class Test {
         Lider lider2=new Lider(analisisDatos, "Segundo", "24", "88888");
         lider2.guardarIntegrante(new Integrante("Pepe", "23", "66666"));
         lider2.getArea().mostrarIntegrantes();
+        
+      
         
         
         
