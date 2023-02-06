@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MCald
@@ -109,6 +111,18 @@ public class Login extends javax.swing.JFrame {
 
     private void jIngresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIngresarButtonActionPerformed
         // TODO add your handling code here:
+        String usuario = jUsuarioTextField.getText();
+        String password = new String(jPasswordField.getPassword());
+
+        if (usuario.equals("usuario") && password.equals("clave")) {
+            JOptionPane.showMessageDialog(null, "Bienvenido!");
+            
+            JFramePrincipal principal = new JFramePrincipal();
+            principal.setVisible(true);
+            this.setVisible(false);
+        } else {  
+            JOptionPane.showMessageDialog(null, "Datos no correctos!");
+        }
     }//GEN-LAST:event_jIngresarButtonActionPerformed
 
     /**
