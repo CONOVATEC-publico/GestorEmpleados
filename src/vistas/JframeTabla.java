@@ -159,7 +159,7 @@ public class JframeTabla extends javax.swing.JFrame {
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
         if (y.getRootPane() != null)
         {
-            // Se debe agregar al GRID del JDialog llamado DetalleDialogo
+            // Se debe agregar al GRID del JDialog llamado JframeIngresoDatos
             // Se debe crear un vector para la fila del JTable
             Vector v = new Vector();
             v.addElement(y.nombre.getText());
@@ -176,6 +176,16 @@ public class JframeTabla extends javax.swing.JFrame {
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
         // TODO add your handling code here:
         // Botón para editar la fila a seleccionar
+        // En primer lugar hay que validar la selección de la fila
+        if (TablaGestor.getSelectedRow() == -1) {
+            return; // En este caso, si no se ha seleccionado la fila, entonces no se continúa.
+        }
+        
+        // Hay que mostrar el JDialog de JframeIngresoDatos
+        JframeIngresoDatos y = new JframeIngresoDatos(this,true);
+        y.setVisible(true);
+           
+            
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     /**
