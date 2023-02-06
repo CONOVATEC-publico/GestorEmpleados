@@ -4,6 +4,7 @@
  */
 package vistas;
 
+import entidades.Integrante;
 import javax.swing.table.DefaultTableModel; //modelo de datos para JTable
 import java.util.Vector; //se requiere para hacer filas
 
@@ -153,8 +154,8 @@ public class JframeTabla extends javax.swing.JFrame {
         // Llamar al JDialog de DetalleDialogo
         JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
         y.setVisible(true);
-        entidades.Integrante z = new entidades.Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
-        
+        Integrante z = new Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
+        System.out.println("--->"+z.toString());
         // Verificando si se hizo click en Aceptar
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
         if (y.getRootPane() != null)
