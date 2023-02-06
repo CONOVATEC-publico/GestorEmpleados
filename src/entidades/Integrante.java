@@ -27,7 +27,7 @@ public class Integrante extends Persona{
 
     @Override
     public String toString() {
-        return "Integrante{" +super.nombre +','+super.edad+','+super.dni +'}';
+        return "Integrante{" +super.getNombre() +','+super.getEdad()+','+super.getDni() +'}';
     }
             
     

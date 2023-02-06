@@ -163,9 +163,9 @@ public class JframeTabla extends javax.swing.JFrame {
             // Se debe agregar al GRID del JDialog llamado JframeIngresoDatos
             // Se debe crear un vector para la fila del JTable
             Vector v = new Vector();
-            v.addElement(y.nombre.getText());
-            v.addElement(y.edad.getText());
-            v.addElement(y.dni.getText());
+            v.addElement(z.getNombre());
+            v.addElement(z.getEdad());
+            v.addElement(z.getDni());
             
             // Agregar la fila al modelo
             modelo.addRow(v);
