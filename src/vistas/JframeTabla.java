@@ -34,8 +34,9 @@ public class JframeTabla extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaGestor = new javax.swing.JTable();
-        btnAgregar = new javax.swing.JButton();
+        BtnAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        BtnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -61,10 +62,10 @@ public class JframeTabla extends javax.swing.JFrame {
         TablaGestor.setShowGrid(true);
         jScrollPane2.setViewportView(TablaGestor);
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                BtnAgregarActionPerformed(evt);
             }
         });
 
@@ -72,14 +73,23 @@ public class JframeTabla extends javax.swing.JFrame {
         jLabel1.setText("Gestor de Empleados");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnAgregar)
+                    .addComponent(BtnModificar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
@@ -95,7 +105,10 @@ public class JframeTabla extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnAgregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnModificar)))
                 .addContainerGap())
         );
 
@@ -117,7 +130,6 @@ public class JframeTabla extends javax.swing.JFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Edad");
         modelo.addColumn("DNI");
-        modelo.addColumn("Equipo");
         
         //Colocando el modelo en el JTable
         TablaGestor.setModel(modelo);
@@ -129,16 +141,14 @@ public class JframeTabla extends javax.swing.JFrame {
         TablaGestor.getColumnModel().getColumn(1).setPreferredWidth(80);
         TablaGestor.getColumnModel().getColumn(2).setMaxWidth(80);
         TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(80);
-        TablaGestor.getColumnModel().getColumn(3).setMaxWidth(150);
-        TablaGestor.getColumnModel().getColumn(3).setPreferredWidth(150);
-        
+          
        
         
         
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
         // Llamar al JDialog de DetalleDialogo
         JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
@@ -155,14 +165,18 @@ public class JframeTabla extends javax.swing.JFrame {
             v.addElement(y.nombre.getText());
             v.addElement(y.edad.getText());
             v.addElement(y.dni.getText());
-            v.addElement(y.equipo.getText());
             
             // Agregar la fila al modelo
             modelo.addRow(v);
         }
         
         
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_BtnAgregarActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        // TODO add your handling code here:
+        // Botón para editar la fila a seleccionar
+    }//GEN-LAST:event_BtnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,8 +216,9 @@ public class JframeTabla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnModificar;
     private javax.swing.JTable TablaGestor;
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

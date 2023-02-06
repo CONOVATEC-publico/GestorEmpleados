@@ -44,11 +44,9 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         edad = new javax.swing.JTextField();
         dni = new javax.swing.JTextField();
-        equipo = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -63,9 +61,6 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("DNI:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText("Equipo:");
-
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         edad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -74,8 +69,6 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
 
         dni.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         dni.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        equipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnAceptar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnAceptar.setText("Aceptar");
@@ -102,11 +95,9 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,9 +105,9 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(btnCancelar)
-                .addGap(23, 23, 23))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,15 +124,11 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addGap(18, 18, 18))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,14 +169,7 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this,"DNI debe ser un valor de 8 dígitos.");
                 return; // con este código si el mensaje sale ya no se continuan con las líneas de abajo.
             }
-            
-            // Equipo debe ser ingresado como texto
-            if (equipo.getText().trim().length() == 0)
-            {
-                JOptionPane.showMessageDialog(this,"Debe ingresar el equipo al que pertenece.");
-                return; // con este código si el mensaje sale ya no se continuan con las líneas de abajo.
-            }
-            
+                                    
             // Si todo salió en orden, entonce se oculta el JDialog pero no se detruye de la memoria.
             this.setVisible(false);
                                 
@@ -248,11 +228,9 @@ public class JframeIngresoDatos extends javax.swing.JDialog {
     private javax.swing.JButton btnCancelar;
     public javax.swing.JTextField dni;
     public javax.swing.JTextField edad;
-    public javax.swing.JTextField equipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     public javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }
