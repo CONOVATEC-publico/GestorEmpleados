@@ -4,17 +4,19 @@
  */
 package vistas;
 
+import entidades.Area;
 import entidades.Integrante;
 import javax.swing.table.DefaultTableModel; //modelo de datos para JTable
 import java.util.Vector; //se requiere para hacer filas
 import javax.swing.JOptionPane;
+import main.Test;
 
 /**
  *
  * @author eterr
  */
 public class JframeTabla extends javax.swing.JFrame {
-    
+    Area m = new Area("Desarrollo de Software");
     //Se debe declarar el modelo de datos del JTable como una variable global
     DefaultTableModel modelo;
 
@@ -152,7 +154,7 @@ public class JframeTabla extends javax.swing.JFrame {
                                     .addComponent(Txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,12 +271,16 @@ public class JframeTabla extends javax.swing.JFrame {
         data[2] = Txt_dni.getText();
         modelo.addRow(data);
         
+        
+        
+        Integrante z = new Integrante(Txt_nombre.getText().toString(), Txt_edad.getText().toString(), Txt_dni.getText().toString());
+        // System.out.println("--->"+z.toString());
+        m.guardarIntegrante(z);
         Txt_nombre.setText("");
         Txt_edad.setText("");
         Txt_dni.setText("");
         
-        Integrante z = new Integrante(Txt_nombre.getText().toString(), Txt_edad.getText().toString(), Txt_dni.getText().toString());
-        System.out.println("--->"+z.toString());
+        m.mostrarIntegrantes();
         // Verificando si se hizo click en Aceptar
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
         //if (y.getRootPane() != null)

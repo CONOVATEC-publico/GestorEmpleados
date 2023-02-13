@@ -18,7 +18,7 @@ import vistas.JframeTabla;
  * @author ASUS1
  */
 public class Test {
-
+    static Area analisisDatoss;
     /**
      * @param args the command line arguments
      */
