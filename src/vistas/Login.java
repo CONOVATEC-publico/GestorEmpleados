@@ -4,7 +4,9 @@
  */
 package vistas;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import entidades.Lider;
 
 /**
  *
@@ -12,11 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    private ArrayList<Lider> lideres;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+    }
+
+    public Login(ArrayList<Lider> lideres) {
+        initComponents();
+        this.lideres = lideres;
     }
 
     /**
@@ -114,14 +122,16 @@ public class Login extends javax.swing.JFrame {
         String usuario = jUsuarioTextField.getText();
         String password = new String(jPasswordField.getPassword());
 
-        if (usuario.equals("usuario") && password.equals("clave")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido!");
-            
-            JFramePrincipal principal = new JFramePrincipal();
-            principal.setVisible(true);
-            this.setVisible(false);
-        } else {  
-            JOptionPane.showMessageDialog(null, "Datos no correctos!");
+        for (Lider lider : lideres) {   
+            if (usuario.equals(lider.getUsuario()) && password.equals(lider.getClave())) {
+                JOptionPane.showMessageDialog(null, "Bienvenido!");
+                
+                JFramePrincipal principal = new JFramePrincipal();
+                principal.setVisible(true);
+                this.setVisible(false);
+            } else {  
+                JOptionPane.showMessageDialog(null, "Datos no correctos!");
+            }
         }
     }//GEN-LAST:event_jIngresarButtonActionPerformed
 
