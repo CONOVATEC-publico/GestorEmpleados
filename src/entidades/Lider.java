@@ -9,13 +9,17 @@ package entidades;
  * @author USER1
  */
 public class Lider extends Persona {
-    Area area;
+    private Area area;
+    private String usuario;
+    private String clave;
 
-    public Lider(Area area, String nombre, String edad, String dni) {
+    public Lider(Area area, String nombre, String edad, String dni, String usuario, String clave) {
         super(nombre, edad, dni);
         this.area = area;
+        this.usuario = usuario;
+        this.clave = clave;
     }
-    
+
     public Area getArea() {
         return area;
     }
@@ -29,11 +33,27 @@ public class Lider extends Persona {
     }
 
     public void retirarIntegrante() {
-        
+
     }
 
     public void guardarIntegrante(Integrante integrante) {
         area.integrantes.add(integrante);
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     @Override
