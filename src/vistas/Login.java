@@ -128,6 +128,7 @@ public class Login extends javax.swing.JFrame {
             for (Lider lider : lideres) {   
                 if (usuario.equals(lider.getUsuario()) && password.equals(lider.getClave())) {
                     encontrado = true;
+                    break;
                 }
             }
         }
