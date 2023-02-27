@@ -4,16 +4,19 @@
  */
 package vistas;
 
+import entidades.Area;
 import entidades.Integrante;
 import javax.swing.table.DefaultTableModel; //modelo de datos para JTable
 import java.util.Vector; //se requiere para hacer filas
+import javax.swing.JOptionPane;
+import main.Test;
 
 /**
  *
  * @author eterr
  */
 public class JframeTabla extends javax.swing.JFrame {
-    
+    Area m = new Area("Desarrollo de Software");
     //Se debe declarar el modelo de datos del JTable como una variable global
     DefaultTableModel modelo;
 
@@ -38,6 +41,14 @@ public class JframeTabla extends javax.swing.JFrame {
         BtnAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         BtnModificar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Txt_nombre = new javax.swing.JTextField();
+        Txt_edad = new javax.swing.JTextField();
+        Txt_dni = new javax.swing.JTextField();
+        BtnEliminar = new javax.swing.JButton();
+        BtnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -48,12 +59,12 @@ public class JframeTabla extends javax.swing.JFrame {
 
         TablaGestor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3"
             }
         ));
         TablaGestor.setSelectionBackground(new java.awt.Color(204, 153, 0));
@@ -62,6 +73,7 @@ public class JframeTabla extends javax.swing.JFrame {
         TablaGestor.setShowGrid(true);
         jScrollPane2.setViewportView(TablaGestor);
 
+        BtnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +85,7 @@ public class JframeTabla extends javax.swing.JFrame {
         jLabel1.setText("Gestor de Empleados");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        BtnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnModificar.setText("Modificar");
         BtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,36 +93,104 @@ public class JframeTabla extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Nombre Completo:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Edad:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("DNI:");
+
+        Txt_nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        Txt_edad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Txt_edad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        Txt_edad.setText("0");
+
+        Txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Txt_dni.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        BtnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnEliminar.setText("Eliminar");
+        BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminarActionPerformed(evt);
+            }
+        });
+
+        BtnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnLimpiar.setText("Limpiar Tabla");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BtnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(189, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(Txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(Txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(Txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BtnAgregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnModificar)))
-                .addContainerGap())
+                        .addGap(26, 26, 26)
+                        .addComponent(BtnModificar)
+                        .addGap(26, 26, 26)
+                        .addComponent(BtnEliminar)
+                        .addGap(26, 26, 26)
+                        .addComponent(BtnLimpiar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -139,8 +220,8 @@ public class JframeTabla extends javax.swing.JFrame {
         TablaGestor.getColumnModel().getColumn(0).setPreferredWidth(150);
         TablaGestor.getColumnModel().getColumn(1).setMaxWidth(80);
         TablaGestor.getColumnModel().getColumn(1).setPreferredWidth(80);
-        TablaGestor.getColumnModel().getColumn(2).setMaxWidth(80);
-        TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(80);
+        TablaGestor.getColumnModel().getColumn(2).setMaxWidth(90);
+        TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(90);
           
        
         
@@ -151,24 +232,69 @@ public class JframeTabla extends javax.swing.JFrame {
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
         // Llamar al JDialog de DetalleDialogo
-        JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
-        y.setVisible(true);
-        Integrante z = new Integrante(y.nombre.getText().toString(), y.edad.getText().toString(), y.dni.getText().toString());
-        System.out.println("--->"+z.toString());
+        // JframeIngresoDatos y = new JframeIngresoDatos(this, true); // Llamar de forna modal
+        // y.setVisible(true);
+        
+        
+        // Validar los datos antes de ingresar al JTable
+        try
+        {
+            // Se debe ingresar el nombre completo
+            if (Txt_nombre.getText().trim().length() == 0)
+            {
+                JOptionPane.showMessageDialog(this,"Debe ingresar el nombre completo.");
+                return; // con este código si el mensaje sale ya no se continuan con las líneas de abajo.
+            }
+            
+            // Edad debe ser mayor a cero
+            if (Integer.parseInt(Txt_edad.getText()) <= 0)
+            {
+                JOptionPane.showMessageDialog(this,"Edad debe ser mayor a cero.");
+                return; // con este código si el mensaje sale ya no se continuan con las líneas de abajo.
+            }
+            
+            // DNI debe ser un valor de 8 dígitos
+            if (Txt_dni.getText().trim().length() != 8)
+            {
+                JOptionPane.showMessageDialog(this,"DNI debe ser un valor de 8 dígitos.");
+                return; // con este código si el mensaje sale ya no se continuan con las líneas de abajo.
+            }
+            
+        }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this,"La información ingresada no es válida.");
+        }
+        
+        String []data = new String[3];
+        data[0] = Txt_nombre.getText();
+        data[1] = Txt_edad.getText();
+        data[2] = Txt_dni.getText();
+        modelo.addRow(data);
+        
+        
+        
+        Integrante z = new Integrante(Txt_nombre.getText().toString(), Txt_edad.getText().toString(), Txt_dni.getText().toString());
+        // System.out.println("--->"+z.toString());
+        m.guardarIntegrante(z);
+        Txt_nombre.setText("");
+        Txt_edad.setText("");
+        Txt_dni.setText("");
+        
+        m.mostrarIntegrantes();
         // Verificando si se hizo click en Aceptar
         // Si el RootPane del JDialog no es nulo se hizo click en Aceptar
-        if (y.getRootPane() != null)
-        {
+        //if (y.getRootPane() != null)
+        //{
             // Se debe agregar al GRID del JDialog llamado JframeIngresoDatos
             // Se debe crear un vector para la fila del JTable
-            Vector v = new Vector();
-            v.addElement(z.getNombre());
-            v.addElement(z.getEdad());
-            v.addElement(z.getDni());
+        //    Vector v = new Vector();
+        //    v.addElement(z.getNombre());
+        //    v.addElement(z.getEdad());
+        //    v.addElement(z.getDni());
             
             // Agregar la fila al modelo
-            modelo.addRow(v);
-        }
+        //    modelo.addRow(v);
+        //}
         
         
     }//GEN-LAST:event_BtnAgregarActionPerformed
@@ -182,11 +308,33 @@ public class JframeTabla extends javax.swing.JFrame {
         }
         
         // Hay que mostrar el JDialog de JframeIngresoDatos
-        JframeIngresoDatos y = new JframeIngresoDatos(this,true);
-        y.setVisible(true);
-           
+        //JframeIngresoDatos y = new JframeIngresoDatos(this,true);
+        //y.setVisible(true);
+        
+        int fila = TablaGestor.getSelectedRow();
+        modelo.setValueAt(Txt_nombre.getText(), fila, 0);
+        modelo.setValueAt(Txt_edad.getText(), fila, 1);
+        modelo.setValueAt(Txt_dni.getText(), fila, 2);
+        
+                         
             
     }//GEN-LAST:event_BtnModificarActionPerformed
+
+    private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
+        // TODO add your handling code here:
+        int fila = TablaGestor.getSelectedRow();
+        modelo.removeRow(fila);
+        
+    }//GEN-LAST:event_BtnEliminarActionPerformed
+
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+        // TODO add your handling code here:
+        int filas = modelo.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
+        }
+        
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +380,17 @@ public class JframeTabla extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnEliminar;
+    private javax.swing.JButton BtnLimpiar;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JTable TablaGestor;
+    private javax.swing.JTextField Txt_dni;
+    private javax.swing.JTextField Txt_edad;
+    private javax.swing.JTextField Txt_nombre;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

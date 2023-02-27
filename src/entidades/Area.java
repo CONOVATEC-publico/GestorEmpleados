@@ -45,6 +45,9 @@ public class Area {
     public void setIntegrantes(ArrayList<Integrante> integrantes) {
         this.integrantes = integrantes;
     }
-    
+ 
+    public void guardarIntegrante(Integrante integrante) {
+        integrantes.add(integrante);
+    }
     
 }
