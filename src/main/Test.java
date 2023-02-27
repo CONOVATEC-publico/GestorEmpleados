@@ -10,7 +10,7 @@ import entidades.Comunidad;
 import entidades.Integrante;
 import entidades.Lider;
 import java.util.ArrayList;
-
+import interfaces.Registro;
 /**
  *
  * @author ASUS1
@@ -42,7 +42,13 @@ public class Test {
         lider2.guardarIntegrante(new Integrante("Pepe", "23", "66666"));
         lider2.getArea().mostrarIntegrantes();
         
-        
+        //alanis trying
+        //llamamos y hacemos visible a la interfaz grafica. :/
+        Registro reg = new Registro();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
     }
     
 }
+
+

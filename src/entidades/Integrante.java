@@ -30,6 +30,6 @@ public class Integrante extends Persona{
         return "Integrante{" +super.nombre +','+super.edad+','+super.dni +'}';
     }
             
-    
+
     
 }
