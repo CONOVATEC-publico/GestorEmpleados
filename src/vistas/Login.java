@@ -122,16 +122,24 @@ public class Login extends javax.swing.JFrame {
         String usuario = jUsuarioTextField.getText();
         String password = new String(jPasswordField.getPassword());
 
-        for (Lider lider : lideres) {   
-            if (usuario.equals(lider.getUsuario()) && password.equals(lider.getClave())) {
-                JOptionPane.showMessageDialog(null, "Bienvenido!");
-                
-                JFramePrincipal principal = new JFramePrincipal();
-                principal.setVisible(true);
-                this.setVisible(false);
-            } else {  
-                JOptionPane.showMessageDialog(null, "Datos no correctos!");
+        boolean encontrado = false;
+        
+        if (lideres != null) {
+            for (Lider lider : lideres) {   
+                if (usuario.equals(lider.getUsuario()) && password.equals(lider.getClave())) {
+                    encontrado = true;
+                }
             }
+        }
+
+        if (encontrado) {
+            JOptionPane.showMessageDialog(null, "Bienvenido!");
+            
+            JFramePrincipal principal = new JFramePrincipal();
+            principal.setVisible(true);
+            this.setVisible(false);
+        } else {  
+            JOptionPane.showMessageDialog(null, "Datos no correctos!");
         }
     }//GEN-LAST:event_jIngresarButtonActionPerformed
 
