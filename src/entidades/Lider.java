@@ -20,8 +20,9 @@ public class Lider extends Persona {
         this.clave = clave;
     }
 
-    public Lider(Area desarrolloSoftware, String adrian, String string, String string0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Lider(Area area, String nombre, String edad, String dni) {
+        super(nombre, edad, dni);
+        this.area = area;
     }
 
     public Area getArea() {
