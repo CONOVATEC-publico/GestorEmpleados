@@ -20,6 +20,11 @@ public class Lider extends Persona {
         this.clave = clave;
     }
 
+    public Lider(Area area, String nombre, String edad, String dni) {
+        super(nombre, edad, dni);
+        this.area = area;
+    }
+
     public Area getArea() {
         return area;
     }

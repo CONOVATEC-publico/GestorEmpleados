@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame {
         if (encontrado) {
             JOptionPane.showMessageDialog(null, "Bienvenido!");
             
-            JFramePrincipal principal = new JFramePrincipal();
+            JframeTabla principal = new JframeTabla();
             principal.setVisible(true);
             this.setVisible(false);
         } else {  
