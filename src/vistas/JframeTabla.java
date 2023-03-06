@@ -6,6 +6,8 @@ package vistas;
 
 import entidades.Area;
 import entidades.Integrante;
+import entidades.Lider;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel; //modelo de datos para JTable
 import java.util.Vector; //se requiere para hacer filas
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ import main.Test;
  */
 public class JframeTabla extends javax.swing.JFrame {
     Area m = new Area("Desarrollo de Software");
+    private Lider lider;
     //Se debe declarar el modelo de datos del JTable como una variable global
     DefaultTableModel modelo;
 
@@ -25,6 +28,11 @@ public class JframeTabla extends javax.swing.JFrame {
      */
     public JframeTabla() {
         initComponents();
+    }
+    
+    public JframeTabla(Lider lider) {
+        initComponents();
+        this.lider=lider;
     }
 
     /**
@@ -224,6 +232,18 @@ public class JframeTabla extends javax.swing.JFrame {
         TablaGestor.getColumnModel().getColumn(2).setPreferredWidth(90);
           
        
+        String []data = new String[3];
+        data[0] = lider.getNombre();
+        data[1] = lider.getEdad();
+        data[2] = lider.getDni();
+        modelo.addRow(data);
+        
+        for(Integrante i: lider.getArea().getIntegrantes()){
+            data[0] = i.getNombre();
+            data[1] = i.getEdad();
+            data[2] = i.getDni();
+            modelo.addRow(data);
+        }
         
         
         

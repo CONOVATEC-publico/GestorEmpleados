@@ -123,10 +123,11 @@ public class Login extends javax.swing.JFrame {
         String password = new String(jPasswordField.getPassword());
 
         boolean encontrado = false;
-        
+        Lider lideractual = null;
         if (lideres != null) {
             for (Lider lider : lideres) {   
                 if (usuario.equals(lider.getUsuario()) && password.equals(lider.getClave())) {
+                    lideractual=lider;
                     encontrado = true;
                     break;
                 }
@@ -136,7 +137,7 @@ public class Login extends javax.swing.JFrame {
         if (encontrado) {
             JOptionPane.showMessageDialog(null, "Bienvenido!");
             
-            JframeTabla principal = new JframeTabla();
+            JframeTabla principal = new JframeTabla(lideractual);
             principal.setVisible(true);
             this.setVisible(false);
         } else {  
