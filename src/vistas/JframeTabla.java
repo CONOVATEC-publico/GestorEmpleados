@@ -57,6 +57,7 @@ public class JframeTabla extends javax.swing.JFrame {
         Txt_dni = new javax.swing.JTextField();
         BtnEliminar = new javax.swing.JButton();
         BtnLimpiar = new javax.swing.JButton();
+        BuscarjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -135,6 +136,13 @@ public class JframeTabla extends javax.swing.JFrame {
             }
         });
 
+        BuscarjButton.setText("Buscar");
+        BuscarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarjButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +169,8 @@ public class JframeTabla extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(Txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(BuscarjButton))))
                 .addContainerGap(189, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -186,7 +195,7 @@ public class JframeTabla extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(Txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BtnAgregar)
                         .addGap(26, 26, 26)
@@ -195,6 +204,8 @@ public class JframeTabla extends javax.swing.JFrame {
                         .addComponent(BtnEliminar)
                         .addGap(26, 26, 26)
                         .addComponent(BtnLimpiar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BuscarjButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,6 +367,29 @@ public class JframeTabla extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnLimpiarActionPerformed
 
+    private void BuscarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarjButtonActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog("Type your name please");
+        if (name != null && name.length()>0) {
+            int filas = modelo.getRowCount();
+
+            TablaGestor.clearSelection();
+            Boolean encontrado = false;
+            for (int i = 0; i < filas; i++) {
+                String nombre = modelo.getValueAt(i, 0).toString();
+                
+                if (nombre.toUpperCase().contains(name.toUpperCase())) {
+                    TablaGestor.setRowSelectionInterval(i, i);
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                JOptionPane.showMessageDialog(this, "No se encontro una coincidencia");
+            }
+        }
+    }//GEN-LAST:event_BuscarjButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -403,6 +437,7 @@ public class JframeTabla extends javax.swing.JFrame {
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnLimpiar;
     private javax.swing.JButton BtnModificar;
+    private javax.swing.JButton BuscarjButton;
     private javax.swing.JTable TablaGestor;
     private javax.swing.JTextField Txt_dni;
     private javax.swing.JTextField Txt_edad;
