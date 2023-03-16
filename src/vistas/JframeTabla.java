@@ -169,10 +169,10 @@ public class JframeTabla extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(BuscarjButton)
+                                .addComponent(TextoBuscarjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TextoBuscarjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(BuscarjButton))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(BtnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -214,7 +214,7 @@ public class JframeTabla extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BuscarjButton)
                             .addComponent(TextoBuscarjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(26, Short.MAX_VALUE))))
@@ -379,25 +379,22 @@ public class JframeTabla extends javax.swing.JFrame {
         // TODO add your handling code here:
         // String name = JOptionPane.showInputDialog("Type your name please");
         String buscar = TextoBuscarjTextField.getText();
-        
-        if (buscar != null && buscar.length()>0) {
-            int filas = modelo.getRowCount();
 
-            TablaGestor.clearSelection();
-            Boolean encontrado = false;
-            for (int i = 0; i < filas; i++) {
-                String nombre = modelo.getValueAt(i, 0).toString();
-                
-                if (nombre.toUpperCase().contains(buscar.toUpperCase())) {
-                    TablaGestor.setRowSelectionInterval(i, i);
-                    encontrado = true;
-                    break;
-                }
-            }
-            if (!encontrado) {
-                JOptionPane.showMessageDialog(this, "No se encontro una coincidencia");
-            }
+        // limpiando datos actuales
+        int filas = modelo.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
         }
+
+        // obteniendo y agregando los resultados del filtro
+        String[] data = new String[3];
+        for(Integrante i: lider.getArea().getIntegrantes(buscar)){
+            data[0] = i.getNombre();
+            data[1] = i.getEdad();
+            data[2] = i.getDni();
+            modelo.addRow(data);
+        }
+
     }//GEN-LAST:event_BuscarjButtonActionPerformed
 
     /**

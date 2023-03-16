@@ -19,13 +19,13 @@ public class Area {
         this.nombre = nombre;
         integrantes=new ArrayList<Integrante>();
     }
-    
+
     public Area(String nombre, ArrayList<Integrante> integrantes) {
         this.nombre = nombre;
         this.integrantes = integrantes;
         //this.comunidad = comunidad;
     }
-    
+
     public void mostrarIntegrantes(){
         System.out.println("Integrantes:"+integrantes.toString());
     }
@@ -42,6 +42,20 @@ public class Area {
         return integrantes;
     }
 
+    public ArrayList<Integrante> getIntegrantes(String filtro) {
+        if (filtro.trim().equals("")) {
+            return integrantes;
+        }
+
+        ArrayList<Integrante> integrantesFiltrados = new ArrayList<>();
+        for (Integrante i : integrantes) {
+            if (i.getNombre().toUpperCase().contains(filtro.toUpperCase())) {
+                integrantesFiltrados.add(i);
+            }
+        }
+        return integrantesFiltrados;
+    }
+
     public void setIntegrantes(ArrayList<Integrante> integrantes) {
         this.integrantes = integrantes;
     }
@@ -49,5 +63,5 @@ public class Area {
     public void guardarIntegrante(Integrante integrante) {
         integrantes.add(integrante);
     }
-    
+
 }
