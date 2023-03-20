@@ -42,14 +42,23 @@ public class Area {
         return integrantes;
     }
 
-    public ArrayList<Integrante> getIntegrantes(String filtro) {
-        if (filtro.trim().equals("")) {
+    public Integrante getIntegrante(String DNI){
+        for (Integrante integrante : integrantes) {
+            if (integrante.getDni().equals(DNI)) {
+                return integrante;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Integrante> getIntegrantes(String nombreFiltrar) {
+        if (nombreFiltrar.trim().equals("")) {
             return integrantes;
         }
 
         ArrayList<Integrante> integrantesFiltrados = new ArrayList<>();
         for (Integrante i : integrantes) {
-            if (i.getNombre().toUpperCase().contains(filtro.toUpperCase())) {
+            if (i.getNombre().toUpperCase().contains(nombreFiltrar.toUpperCase())) {
                 integrantesFiltrados.add(i);
             }
         }
@@ -64,4 +73,28 @@ public class Area {
         integrantes.add(integrante);
     }
 
+    public void modificarIntegrante(String dNI, Integrante integranteModificado) {
+        int i = -1;
+        for (Integrante integrante : integrantes) {
+            if (integrante.getDni().equals(dNI)) {
+                i = integrantes.indexOf(integrante);
+                break;
+            }
+        }
+
+        if (i >= 0) {
+            integrantes.set(i, integranteModificado);
+        }
+    }
+
+    public void eliminarIntegrante(String dNI) {
+        int i = -1;
+        for (Integrante integrante : integrantes) {
+            if (integrante.getDni().equals(dNI)) {
+                i = integrantes.indexOf(integrante);
+                integrantes.remove(i);
+                break;
+            }
+        }
+    }
 }
