@@ -25,7 +25,17 @@ Este proyecto se basa en la creación de un Gestor o Administrador de Empleados 
 Se desarrollará un programa en el que se agregará, modificará, eliminará (parcial y totalmente) y buscará a los integrantes del Gestor, el acceso al programa se realizará por medio de un login. Se empleó el Apache NetBeans como entorno de trabajo para la programación en Java Script.
 
 #### Ejecución del programa
-Para ejecutar el programa podemos emplear las teclas F6 o Alt + F6.
+Para ejecutar el programa, nos ubicamos en el terminal de GestorEmpleados/src y ejecutamos los siguientes comandos:
+
+    javac main/Test.java + <Tab>   
+
+    java main/Test
+
+
+El resultado de la ejecución de los comandos será el acceso a la ventana Login (ver gráfico).
+
+![](https://i.ibb.co/FKhspry/23-03-19-211800-Ejecutando-programa-en-el-terminal-de-Apache-Net-Beans.png)
+> Ejecutando programa desde terminal GestorEmpleados/src.
 
 #### Resultado:
 Se cargaron usuarios al programa tal como se muestra en el gráfico. Para agregar más usuarios se debe alimentar información por medio de los cuadros de texto: Nombre Completo, Edad y DNI. 
